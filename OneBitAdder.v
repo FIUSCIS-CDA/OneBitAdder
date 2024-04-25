@@ -15,72 +15,54 @@
 
 // PROGRAM		"Quartus Prime"
 // VERSION		"Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
-// CREATED		"Tue Aug 15 10:48:54 2023"
+// CREATED		"Mon Feb 12 08:40:52 2024"
 
 module OneBitAdder(
 	ci,
 	a,
 	b,
-	s,
-	co
+	co,
+	s
 );
 
 
 input wire	ci;
 input wire	a;
 input wire	b;
-output wire	s;
 output wire	co;
+output wire	s;
 
-wire	______NOTa___AND___NOTb______OR___aANDb___;
-wire	______NOTb___ANDa___OR______NOTa___ANDb___;
-wire	___ciORa___ANDb;
-wire	___NOTa___AND___NOTb___;
-wire	___NOTa___ANDb;
-wire	___NOTb___ANDa;
-wire	___NOTci___AND_________NOTb___ANDa___OR______NOTa___ANDb______;
-wire	aANDb;
-wire	ciAND_________NOTa___AND___NOTb______OR___aANDb______;
-wire	ciANDa;
-wire	ciORa;
-wire	NOTa;
-wire	NOTb;
-wire	NOTci;
+wire	SYNTHESIZED_WIRE_0;
+wire	SYNTHESIZED_WIRE_1;
+wire	SYNTHESIZED_WIRE_2;
+wire	SYNTHESIZED_WIRE_11;
+wire	SYNTHESIZED_WIRE_12;
+wire	SYNTHESIZED_WIRE_5;
+wire	SYNTHESIZED_WIRE_8;
+wire	SYNTHESIZED_WIRE_13;
 
 
 
 
-assign	___NOTa___ANDb = NOTa & b;
+assign	SYNTHESIZED_WIRE_11 = b | a;
 
-assign	___ciORa___ANDb = ciORa & b;
+assign	SYNTHESIZED_WIRE_1 =  ~SYNTHESIZED_WIRE_0;
 
-assign	ciANDa = ci & a;
+assign	s = SYNTHESIZED_WIRE_1 | SYNTHESIZED_WIRE_2;
 
-assign	aANDb = a & b;
+assign	SYNTHESIZED_WIRE_5 = ci & SYNTHESIZED_WIRE_11;
 
-assign	___NOTb___ANDa = a & NOTb;
+assign	SYNTHESIZED_WIRE_12 = a & b;
 
-assign	___NOTa___AND___NOTb___ = NOTa & NOTb;
+assign	co = SYNTHESIZED_WIRE_12 | SYNTHESIZED_WIRE_5;
 
-assign	___NOTci___AND_________NOTb___ANDa___OR______NOTa___ANDb______ = NOTci & ______NOTb___ANDa___OR______NOTa___ANDb___;
+assign	SYNTHESIZED_WIRE_8 =  ~SYNTHESIZED_WIRE_11;
 
-assign	ciAND_________NOTa___AND___NOTb______OR___aANDb______ = ci & ______NOTa___AND___NOTb______OR___aANDb___;
+assign	SYNTHESIZED_WIRE_13 = SYNTHESIZED_WIRE_12 | SYNTHESIZED_WIRE_8;
 
-assign	NOTa =  ~a;
+assign	SYNTHESIZED_WIRE_2 = SYNTHESIZED_WIRE_13 & ci;
 
-assign	NOTb =  ~b;
-
-assign	NOTci =  ~ci;
-
-assign	ciORa = a | ci;
-
-assign	co = ciANDa | ___ciORa___ANDb;
-
-assign	______NOTb___ANDa___OR______NOTa___ANDb___ = ___NOTa___ANDb | ___NOTb___ANDa;
-
-assign	______NOTa___AND___NOTb______OR___aANDb___ = ___NOTa___AND___NOTb___ | aANDb;
-
-assign	s = ciAND_________NOTa___AND___NOTb______OR___aANDb______ | ___NOTci___AND_________NOTb___ANDa___OR______NOTa___ANDb______;
+assign	SYNTHESIZED_WIRE_0 = ci | SYNTHESIZED_WIRE_13;
 
 
 endmodule
